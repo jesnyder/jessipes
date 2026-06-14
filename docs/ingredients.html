@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingredients — GoodEats</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #2c2c2c;
+      background: #faf9f6;
+      line-height: 1.7;
+    }
+    nav { margin-bottom: 2rem; font-size: 0.9rem; }
+    nav a { color: #5a3e2b; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1 {
+      font-size: 2rem;
+      border-bottom: 2px solid #c8a96e;
+      padding-bottom: 12px;
+      color: #1a1a1a;
+    }
+    h2 {
+      font-size: 1.3rem;
+      color: #5a3e2b;
+      margin-top: 2rem;
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 1rem 0 1.2rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .controls label { color: #5a3e2b; }
+    .controls select, .controls input {
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+      padding: 5px 10px;
+      border: 1px solid #ddd0bb;
+      border-radius: 4px;
+      background: #f0e8d8;
+      color: #2c2c2c;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 9px 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f0e8d8;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    th.sortable {
+      cursor: pointer;
+      user-select: none;
+    }
+    th.sortable:hover { background-color: #e8dcc8; }
+    th.sortable::after { content: ' ⇅'; font-size: 0.75em; color: #9b8068; }
+    th.sort-asc::after { content: ' ↑'; color: #5a3e2b; }
+    th.sort-desc::after { content: ' ↓'; color: #5a3e2b; }
+    tr:hover { background-color: #faf3e8; }
+    tr.out-of-stock td { color: #999; }
+    tr.out-of-stock td:first-child { text-decoration: line-through; color: #bbb; }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-family: sans-serif;
+      white-space: nowrap;
+    }
+    .badge-in  { background: #d4edda; color: #276035; }
+    .badge-out { background: #e8e8e8; color: #888; }
+    .role-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 1px 6px;
+      border-radius: 8px;
+      margin: 1px;
+      font-family: sans-serif;
+      background: #ede8e0;
+      color: #5a3e2b;
+    }
+    strong { color: #3b2a1a; }
+    .note { font-size: 0.85rem; color: #6b5744; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+
+  <nav><a href="index.html">← Back to GoodEats</a></nav>
+
+  <h1>Ingredients</h1>
+  <p>Pantry reference — nutritional info, culinary role, and stock status. Click any column header to sort.</p>
+
+  <div class="controls">
+    <label for="filter-stock">Stock:</label>
+    <select id="filter-stock">
+      <option value="all">All</option>
+      <option value="in">In stock</option>
+      <option value="out">Out of stock</option>
+    </select>
+    <label for="filter-role">Role:</label>
+    <select id="filter-role">
+      <option value="all">All roles</option>
+      <option value="acid">Acid</option>
+      <option value="aromatic">Aromatic / Spice</option>
+      <option value="fat">Fat / Richness</option>
+      <option value="fermented">Fermented / Probiotic</option>
+      <option value="protein">Protein base</option>
+      <option value="sweet">Sweet / Starchy</option>
+      <option value="umami">Umami</option>
+      <option value="vegetable">Vegetable</option>
+    </select>
+  </div>
+
+  <table id="ingredients-table">
+    <thead>
+      <tr>
+        <th class="sortable" data-col="0">Ingredient</th>
+        <th>Stock</th>
+        <th>Role</th>
+        <th class="sortable" data-col="3">Cal / 100g</th>
+        <th class="sortable" data-col="4">Protein / 100g</th>
+        <th>Key Nutrients</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- IN STOCK -->
+      <tr data-stock="in" data-roles="aromatic">
+        <td>Cumin</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Aromatic / Spice</span></td>
+        <td>375</td>
+        <td>18g</td>
+        <td>Iron (66% DV/tbsp), manganese</td>
+        <td>Earthy, warm. Used in small amounts — a pinch changes the whole dish. Pairs with acid and fermented flavors.</td>
+      </tr>
+      <tr data-stock="in" data-roles="aromatic">
+        <td>Za'atar</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Aromatic / Spice</span></td>
+        <td>~300</td>
+        <td>~10g</td>
+        <td>Calcium, iron, thymol (antioxidant)</td>
+        <td>Blend of thyme, sumac, sesame, salt. Herby, tangy, nutty. Best added at the end or as a finishing sprinkle.</td>
+      </tr>
+      <tr data-stock="in" data-roles="aromatic">
+        <td>Ginger</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Aromatic / Spice</span></td>
+        <td>80</td>
+        <td>1.8g</td>
+        <td>Gingerols (anti-inflammatory), manganese</td>
+        <td>Pungent, warming. Bridges Asian and Middle Eastern flavors. Use fresh for heat, dried for warmth.</td>
+      </tr>
+      <tr data-stock="in" data-roles="aromatic">
+        <td>White pepper</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Aromatic / Spice</span></td>
+        <td>296</td>
+        <td>10g</td>
+        <td>Manganese, iron</td>
+        <td>Subtler, more floral heat than black pepper. Preferred in light-colored sauces and dairy marinades where black specks are unwanted.</td>
+      </tr>
+      <tr data-stock="in" data-roles="vegetable">
+        <td>Beets</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Vegetable</span> <span class="role-tag">Sweet</span></td>
+        <td>43</td>
+        <td>1.6g</td>
+        <td>Folate (27% DV), potassium, nitrates</td>
+        <td>Earthy, sweet. Nitrates support blood pressure and endurance. Roasting concentrates sweetness; boiling loses nutrients to water.</td>
+      </tr>
+      <tr data-stock="in" data-roles="vegetable">
+        <td>Kale</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Vegetable</span></td>
+        <td>49</td>
+        <td>4.3g</td>
+        <td>Vitamin K (684% DV), vitamin C, calcium, iron</td>
+        <td>One of the most nutrient-dense leafy greens. Bitter raw; massage with oil or blanch to mellow. High oxalates — rotate with spinach.</td>
+      </tr>
+      <tr data-stock="in" data-roles="vegetable">
+        <td>Celery</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Vegetable</span> <span class="role-tag">Aromatic / Spice</span></td>
+        <td>16</td>
+        <td>0.7g</td>
+        <td>Vitamin K, folate, potassium</td>
+        <td>Aromatic base vegetable (mirepoix). Very low calorie. High water content adds bulk to soups and salads.</td>
+      </tr>
+      <tr data-stock="in" data-roles="vegetable">
+        <td>Spinach</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Vegetable</span></td>
+        <td>23</td>
+        <td>2.9g</td>
+        <td>Vitamin K (460% DV), folate, iron, magnesium</td>
+        <td>Milder than kale. Wilts quickly — good for cooked dishes. High oxalates reduce iron absorption; pair with vitamin C source.</td>
+      </tr>
+      <tr data-stock="in" data-roles="sweet vegetable">
+        <td>Sweet potato</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Sweet / Starchy</span> <span class="role-tag">Vegetable</span></td>
+        <td>86</td>
+        <td>1.6g</td>
+        <td>Beta-carotene (Vit A, 284% DV), potassium, fiber</td>
+        <td>Naturally sweet, filling. Excellent for balancing spicy or bitter flavors. Roast for sweetness; steam to preserve nutrients.</td>
+      </tr>
+      <tr data-stock="in" data-roles="vegetable">
+        <td>Brussels sprouts</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Vegetable</span></td>
+        <td>43</td>
+        <td>3.4g</td>
+        <td>Vitamin C (142% DV), vitamin K, folate, glucosinolates</td>
+        <td>Bitter, nutty when roasted. Glucosinolates are anti-cancer compounds. High heat (roast, char) transforms bitterness into sweetness.</td>
+      </tr>
+      <tr data-stock="in" data-roles="fermented umami">
+        <td>Miso paste</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Umami</span> <span class="role-tag">Fermented / Probiotic</span></td>
+        <td>199</td>
+        <td>12g</td>
+        <td>Manganese, copper, B vitamins; ~3700mg sodium/100g</td>
+        <td>Deep savory base. White miso is mildest; red is strongest. Don't boil — destroys probiotics. Pairs well with acid and dairy.</td>
+      </tr>
+      <tr data-stock="in" data-roles="fermented">
+        <td>Kimchi</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Fermented / Probiotic</span> <span class="role-tag">Acid</span></td>
+        <td>15</td>
+        <td>1.1g</td>
+        <td>Vitamin C, probiotics, capsaicin</td>
+        <td>Spicy, sour, funky. A condiment and flavor bomb in one. Add at the end of cooking to preserve live cultures.</td>
+      </tr>
+      <tr data-stock="in" data-roles="fermented acid">
+        <td>Pickles</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Acid</span> <span class="role-tag">Fermented / Probiotic</span></td>
+        <td>11</td>
+        <td>0.3g</td>
+        <td>Probiotics (if lacto-fermented), sodium</td>
+        <td>Sour, salty, crunchy. Brine is useful as a marinade acid or seasoning liquid. Check labels — vinegar pickles have no live cultures.</td>
+      </tr>
+      <tr data-stock="in" data-roles="acid">
+        <td>Lemon juice</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Acid</span></td>
+        <td>22</td>
+        <td>0.4g</td>
+        <td>Vitamin C (28% DV/100ml)</td>
+        <td>Bright, clean acid. Brightens virtually any dish. Helps iron absorption from plant foods. Add at the end to preserve flavor.</td>
+      </tr>
+      <tr data-stock="in" data-roles="acid sweet">
+        <td>Balsamic vinegar</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Acid</span> <span class="role-tag">Sweet</span></td>
+        <td>88</td>
+        <td>0.5g</td>
+        <td>Polyphenols, antioxidants, potassium</td>
+        <td>Sweet-tart, syrupy. Use sparingly in marinades — can dominate and stain. Reduces beautifully as a glaze. Pairs with roasted vegetables.</td>
+      </tr>
+      <tr data-stock="in" data-roles="fat fermented protein">
+        <td>Labneh</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Fat / Richness</span> <span class="role-tag">Fermented / Probiotic</span> <span class="role-tag">Protein base</span></td>
+        <td>167</td>
+        <td>11g</td>
+        <td>Calcium, probiotics, B12</td>
+        <td>Strained yogurt — thick, tangy, rich. Excellent marinade base; chars well at high heat. Can be used as a spread or dip.</td>
+      </tr>
+      <tr data-stock="in" data-roles="fermented protein">
+        <td>Kefir</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Fermented / Probiotic</span> <span class="role-tag">Protein base</span></td>
+        <td>60</td>
+        <td>3.3g</td>
+        <td>Probiotics (30+ strains), B12, calcium, phosphorus</td>
+        <td>Drinkable fermented milk, tangier than yogurt. Thins thick dairy bases like labneh in marinades. Higher probiotic diversity than yogurt.</td>
+      </tr>
+      <tr data-stock="in" data-roles="protein">
+        <td>Soy milk</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Protein base</span></td>
+        <td>54</td>
+        <td>3.3g</td>
+        <td>Calcium (fortified), vitamin D, isoflavones</td>
+        <td>Highest protein of all plant milks. Neutral flavor. Good for smoothies, sauces, and cooking where dairy is avoided.</td>
+      </tr>
+      <tr data-stock="in" data-roles="fat umami">
+        <td>Pesto</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Fat / Richness</span> <span class="role-tag">Umami</span></td>
+        <td>~340</td>
+        <td>~6g</td>
+        <td>Vitamin K, olive oil monounsaturated fats, basil antioxidants</td>
+        <td>Ready-made flavor base — oil, basil, cheese, nuts. Use as a marinade, sauce, or finishing condiment. High calorie; a little goes far.</td>
+      </tr>
+      <tr data-stock="in" data-roles="umami">
+        <td>Liquid aminos</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Umami</span></td>
+        <td>~40</td>
+        <td>~5g</td>
+        <td>~320mg sodium/½ tbsp; all essential amino acids</td>
+        <td>Soy-derived, gluten-free, milder than soy sauce. Adds savory depth without dominating. Pairs well with miso — use together at reduced quantities.</td>
+      </tr>
+      <tr data-stock="in" data-roles="sweet acid">
+        <td>Mango pickle chutney</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Sweet</span> <span class="role-tag">Acid</span></td>
+        <td>~150</td>
+        <td>~1g</td>
+        <td>Vitamin C, beta-carotene, sodium (varies by brand)</td>
+        <td>Sweet, sour, spiced. Strong flavor — use as a condiment, glaze, or marinade addition. Good counterpoint to bitter greens and rich cheese.</td>
+      </tr>
+      <tr data-stock="in" data-roles="protein sweet">
+        <td>Lentils</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Protein base</span> <span class="role-tag">Sweet / Starchy</span></td>
+        <td>116</td>
+        <td>9g</td>
+        <td>Folate (45% DV), iron (18% DV), fiber (7.9g), potassium</td>
+        <td>One of the best plant protein sources. Red lentils dissolve into soups and dal; green/brown hold their shape. Pair with vitamin C to boost iron absorption.</td>
+      </tr>
+      <tr data-stock="in" data-roles="umami vegetable">
+        <td>Mushrooms — Maitake</td>
+        <td><span class="badge badge-in">In stock</span></td>
+        <td><span class="role-tag">Umami</span> <span class="role-tag">Vegetable</span></td>
+        <td>31</td>
+        <td>1.9g</td>
+        <td>Vitamin D (high when UV-exposed), beta-glucans (immune support), copper, B vitamins</td>
+        <td>"Hen of the woods." Rich, earthy umami — one of the most flavorful mushroom varieties. Roast or pan-fry at high heat to char edges. Beta-glucans support immune function.</td>
+      </tr>
+      <!-- OUT OF STOCK -->
+      <tr data-stock="out" data-roles="fat aromatic" class="out-of-stock">
+        <td>Sesame seeds</td>
+        <td><span class="badge badge-out">Out of stock</span></td>
+        <td><span class="role-tag">Fat / Richness</span> <span class="role-tag">Aromatic / Spice</span></td>
+        <td>573</td>
+        <td>17g</td>
+        <td>Calcium (88% DV/100g), iron, zinc, sesamol (antioxidant)</td>
+        <td>Nutty, toasty. One of the best plant sources of calcium. Used as a finishing texture and in za'atar. Base for tahini.</td>
+      </tr>
+      <tr data-stock="out" data-roles="fat sweet" class="out-of-stock">
+        <td>Coconut flakes</td>
+        <td><span class="badge badge-out">Out of stock</span></td>
+        <td><span class="role-tag">Fat / Richness</span> <span class="role-tag">Sweet</span></td>
+        <td>660</td>
+        <td>6.7g</td>
+        <td>MCT (medium-chain triglycerides), manganese, iron</td>
+        <td>Sweet, tropical, rich. MCTs are digested quickly for energy. Use unsweetened. Good in smoothies, granola, and Southeast Asian dishes.</td>
+      </tr>
+      <tr data-stock="out" data-roles="fat protein" class="out-of-stock">
+        <td>Peanut butter</td>
+        <td><span class="badge badge-out">Out of stock</span></td>
+        <td><span class="role-tag">Fat / Richness</span> <span class="role-tag">Protein base</span></td>
+        <td>588</td>
+        <td>25g</td>
+        <td>Niacin (B3), vitamin E, magnesium, monounsaturated fats</td>
+        <td>Highest protein of the nut butters. Pairs with soy/tamari in sauces. Use natural (no added oil/sugar) for savory applications.</td>
+      </tr>
+      <tr data-stock="out" data-roles="fat protein" class="out-of-stock">
+        <td>Almond butter</td>
+        <td><span class="badge badge-out">Out of stock</span></td>
+        <td><span class="role-tag">Fat / Richness</span> <span class="role-tag">Protein base</span></td>
+        <td>614</td>
+        <td>21g</td>
+        <td>Vitamin E (45% DV), calcium, magnesium, monounsaturated fats</td>
+        <td>Milder and slightly sweeter than peanut butter. Higher in calcium and vitamin E. Good in smoothies, dressings, and as a spread.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="note">Calories and protein are per 100g of raw ingredient. Spice values reflect full dry weight — actual amounts used per dish are tiny. Stock status reflects pantry at time of last update.</p>
+
+  <script>
+    const table = document.getElementById('ingredients-table');
+    const tbody = table.querySelector('tbody');
+    const filterStock = document.getElementById('filter-stock');
+    const filterRole = document.getElementById('filter-role');
+    let sortCol = null;
+    let sortAsc = true;
+
+    function applyFilters() {
+      const stock = filterStock.value;
+      const role = filterRole.value;
+      Array.from(tbody.querySelectorAll('tr')).forEach(row => {
+        const matchStock = stock === 'all' || row.dataset.stock === stock;
+        const matchRole = role === 'all' || row.dataset.roles.includes(role);
+        row.style.display = matchStock && matchRole ? '' : 'none';
+      });
+    }
+
+    filterStock.addEventListener('change', applyFilters);
+    filterRole.addEventListener('change', applyFilters);
+
+    table.querySelectorAll('th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const col = parseInt(th.dataset.col);
+        sortAsc = sortCol === col ? !sortAsc : true;
+        sortCol = col;
+        table.querySelectorAll('th').forEach(h => h.className = h.classList.contains('sortable') ? 'sortable' : '');
+        th.className = 'sortable ' + (sortAsc ? 'sort-asc' : 'sort-desc');
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        rows.sort((a, b) => {
+          const av = parseFloat(a.cells[col].textContent.replace(/[^\d.]/g, '')) || 0;
+          const bv = parseFloat(b.cells[col].textContent.replace(/[^\d.]/g, '')) || 0;
+          return sortAsc ? av - bv : bv - av;
+        });
+        rows.forEach(r => tbody.appendChild(r));
+      });
+    });
+  </script>
+
+</body>
+</html>
