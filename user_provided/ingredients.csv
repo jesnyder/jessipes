@@ -4,6 +4,7 @@ Carbohydrate - Barley
 Carbohydrate - Black beans can
 Carbohydrate - Bulgar wheat
 Carbohydrate - Noodle 
+Carbohydrate - Quinoa
 Carbohydrate - Rice, Arborio
 Carbohydrate - Rice, Mexican style 
 Carbohydrate - Rice, White
@@ -20,7 +21,9 @@ Fermented - Kimchi
 Fermented - Mango pickle chutney 
 Fermented - Miso paste  
 Fermented - Pickles 
-Fermented - Vinegar, white
+Fermented - Vinegar, Apple cider 
+Fermented - Vinegar, Plum
+Fermented - Vinegar, White
 
 Produce - Bannana 
 Produce - Beets
@@ -41,6 +44,8 @@ Protein - Beans
 Protein - Lentils
 
 N - Sauce - Almond butter
+Sauce - Coconut oil
+Sauce - Ginger syrup
 Sauce - Pesto
 N - Sauce - Peanut butter 
 Sauce - Seasame oil
