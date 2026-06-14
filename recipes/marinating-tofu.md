@@ -4,7 +4,7 @@
 
 1. **Press it first.** Tofu holds a lot of water, which blocks absorption. Wrap a block of firm or extra-firm tofu in a clean towel, place something heavy on top, and press for at least 30 minutes (or up to 2 hours).
 2. **Cut into pieces.** Cubes, slabs, or strips all work — smaller pieces absorb more flavor.
-3. **Optional: freeze then thaw.** Freezing tofu changes its texture, creating a chewier, spongier result that soaks up marinade exceptionally well.
+3. **Freeze then thaw (recommended).** Freezing tofu expels water and increases protein density per serving, creating a chewier, spongier result that soaks up marinade exceptionally well. Freeze overnight, thaw completely, then press before marinating.
 
 ## Basic Marinade Formula
 
@@ -41,3 +41,19 @@ Save the leftover marinade — you can use it as a glaze, sauce, or baste while 
 - **Pan-fry:** Medium-high heat with a little oil, 3–4 minutes per side until golden
 - **Air-fry:** 375°F (190°C) for 15–20 minutes, shaking halfway
 - **Grill:** On skewers or a grill pan, 3–4 minutes per side
+
+## Nutritional Information
+
+Values are per 100g of firm tofu. Freezing and pressing removes water, concentrating nutrients — especially protein.
+
+| Nutrient | Raw/Pressed | After Freeze + Press |
+|----------|-------------|----------------------|
+| Calories | 76 kcal | ~105 kcal |
+| Protein | 8g | ~11g |
+| Fat | 4.8g | ~6.5g |
+| Carbohydrates | 1.9g | ~2.6g |
+| Fiber | 0.3g | ~0.4g |
+| Calcium | 350mg (27% DV) | higher |
+| Iron | 2.7mg (15% DV) | higher |
+
+> Tofu is a complete protein, containing all nine essential amino acids. Extra-firm tofu has the highest protein content of all tofu varieties.
