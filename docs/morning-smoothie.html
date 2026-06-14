@@ -324,5 +324,25 @@
     </tbody>
   </table>
 
+  <script>
+    document.querySelectorAll('th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const table = th.closest('table');
+        const tbody = table.querySelector('tbody');
+        const col = th.cellIndex;
+        const asc = !th.classList.contains('sort-asc');
+        table.querySelectorAll('th').forEach(h => h.className = h.classList.contains('sortable') ? 'sortable' : '');
+        th.className = 'sortable ' + (asc ? 'sort-asc' : 'sort-desc');
+        Array.from(tbody.querySelectorAll('tr')).sort((a, b) => {
+          const av = a.cells[col] ? a.cells[col].textContent.trim() : '';
+          const bv = b.cells[col] ? b.cells[col].textContent.trim() : '';
+          const an = parseFloat(av.replace(/[^\d.]/g, ''));
+          const bn = parseFloat(bv.replace(/[^\d.]/g, ''));
+          if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
+          return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+        }).forEach(r => tbody.appendChild(r));
+      });
+    });
+  </script>
 </body>
 </html>
