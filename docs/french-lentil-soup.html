@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miso Leek and French Lentil Soup - GoodEats</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #2c2c2c;
+      background: #faf9f6;
+      line-height: 1.7;
+    }
+    nav { margin-bottom: 2rem; font-size: 0.9rem; }
+    nav a { color: #5a3e2b; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1 {
+      font-size: 2rem;
+      border-bottom: 2px solid #c8a96e;
+      padding-bottom: 12px;
+      color: #1a1a1a;
+    }
+    h2 { font-size: 1.3rem; color: #5a3e2b; margin-top: 2rem; }
+    h3 { font-size: 1.05rem; color: #3b2a1a; margin-top: 1.5rem; margin-bottom: 0.3rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid #ddd; }
+    th { background-color: #f0e8d8; font-weight: bold; }
+    tr:hover { background-color: #faf3e8; }
+    .recipe-box {
+      background: #f0e8d8;
+      border-left: 4px solid #c8a96e;
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+    .recipe-box ol, .recipe-box ul { margin: 8px 0 0; padding-left: 20px; }
+    .recipe-box li { margin: 6px 0; }
+    ul, ol { padding-left: 22px; }
+    li { margin: 6px 0; }
+    strong { color: #3b2a1a; }
+    .tip {
+      background: #eaf4ea;
+      border-left: 4px solid #6aaa64;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .nutrition-box {
+      background: #f0f4f8;
+      border-left: 4px solid #5b8db8;
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .warning-box {
+      background: #fdf6ec;
+      border-left: 4px solid #e0a840;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .pantry-in { color: #276035; font-weight: bold; }
+    .pantry-out { color: #b05a00; }
+    tfoot td { font-weight: bold; background: #f0e8d8; }
+    th.sortable { cursor: pointer; user-select: none; }
+    th.sortable:hover { background-color: #e8dcc8; }
+    th.sortable::after { content: ' ⇅'; font-size: 0.75em; color: #9b8068; }
+    th.sort-asc::after { content: ' ↑'; color: #5a3e2b; }
+    th.sort-desc::after { content: ' ↓'; color: #5a3e2b; }
+    td a { color: #5a3e2b; text-decoration: underline dotted; }
+    td a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <nav><a href="index.html">&#8592; Back to GoodEats</a></nav>
+
+  <h1>Miso Leek and French Lentil Soup</h1>
+  <p>A deeply savory, high-iron weeknight soup. French (Puy) lentils simmer with leeks and celery until just tender - they hold their shape and give the soup substance without becoming mushy. Miso is stirred in off the heat at the end, adding umami depth without bitterness, and preserving the probiotic cultures. Finished with lemon and za'atar. Very low fat, high folate, highest iron of any recipe in this collection at ~10mg per serving (57% DV). Serves 2 as a main meal.</p>
+
+  <div class="tip">
+    <strong>Leeks need proper cleaning.</strong> Grit and soil hide between the layers of leek leaves, deep inside the bulb. A quick rinse on the outside does nothing. Cut the leek lengthwise from the light-green section all the way up through the dark-green top. Fan the layers open under cold running water, rubbing between layers to dislodge soil. Pat dry, then slice into half-moons. This is not optional - a single grain of sand in a smooth soup is disproportionately unpleasant.
+  </div>
+
+  <h2>Ingredients</h2>
+
+  <div class="recipe-box">
+    <p style="margin: 0 0 8px;"><strong>Soup base</strong></p>
+    <ul>
+      <li>150g French (Puy) lentils, dry <span class="pantry-in">&#10003; in stock</span></li>
+      <li>2 medium leeks (white and light-green parts only, ~200g), cleaned and sliced into half-moons <span class="pantry-in">&#10003; in stock</span></li>
+      <li>1 medium yellow onion (~150g), diced <span class="pantry-in">&#10003; in stock</span></li>
+      <li>2 stalks celery (~80g), sliced <span class="pantry-in">&#10003; in stock</span></li>
+      <li>1 tbsp olive oil or coconut oil <span class="pantry-in">&#10003; in stock</span></li>
+      <li>900ml water (or light vegetable stock)</li>
+    </ul>
+  </div>
+
+  <div class="recipe-box">
+    <p style="margin: 0 0 8px;"><strong>Spice and aromatics</strong></p>
+    <ul>
+      <li>1 tsp cumin <span class="pantry-in">&#10003; in stock</span></li>
+      <li>½ tsp turmeric <span class="pantry-in">&#10003; in stock</span></li>
+      <li>½ tsp smoked paprika <span class="pantry-in">&#10003; in stock</span></li>
+      <li>½ tsp dried ginger <span class="pantry-in">&#10003; in stock</span></li>
+      <li>¼ tsp black pepper <span class="pantry-in">&#10003; in stock</span></li>
+      <li>1 tsp liquid aminos <span class="pantry-in">&#10003; in stock</span></li>
+      <li>3-4 cloves garlic - when back in stock, add with the spices <span class="pantry-out">&#9651; out of stock</span></li>
+    </ul>
+  </div>
+
+  <div class="recipe-box">
+    <p style="margin: 0 0 8px;"><strong>Finish</strong></p>
+    <ul>
+      <li>2 tbsp white or yellow miso paste <span class="pantry-in">&#10003; in stock</span></li>
+      <li>Juice of 1 lemon <span class="pantry-in">&#10003; in stock</span></li>
+      <li>2 tbsp nutritional yeast <span class="pantry-in">&#10003; in stock</span></li>
+      <li>2 large handfuls kale or spinach (~100g total), stems removed <span class="pantry-in">&#10003; in stock</span></li>
+      <li>1 tsp za'atar per bowl, sprinkled over top <span class="pantry-in">&#10003; in stock</span></li>
+      <li>1 tsp sesame seeds per bowl <span class="pantry-in">&#10003; in stock</span></li>
+    </ul>
+  </div>
+
+  <h2>Method</h2>
+
+  <h3>Step 1 - Rinse and prep</h3>
+  <div class="recipe-box">
+    <ol>
+      <li>Rinse lentils under cold water. Sort briefly - remove any debris. No soaking needed. Set aside.</li>
+      <li>Clean leeks (see tip above). Slice white and light-green parts into half-moons, roughly 1cm thick. Discard dark green tops or reserve for stock.</li>
+      <li>Dice onion. Slice celery.</li>
+    </ol>
+  </div>
+
+  <h3>Step 2 - Build the base</h3>
+  <div class="recipe-box">
+    <ol>
+      <li>Heat oil in a large pot over medium heat. Add onion and celery. Cook 5-6 minutes, stirring occasionally, until the onion is translucent and starting to soften.</li>
+      <li>Add leeks. Cook another 5-6 minutes until the leeks are completely soft and beginning to collapse. They should smell sweet, not sharp. Do not rush this step - fully softened aromatics give the soup its base flavor.</li>
+      <li>Add cumin, turmeric, paprika, dried ginger, and black pepper. Stir to coat. Cook 1 minute until fragrant.</li>
+      <li>Add liquid aminos and stir to combine.</li>
+    </ol>
+  </div>
+
+  <h3>Step 3 - Simmer the lentils</h3>
+  <div class="recipe-box">
+    <ol>
+      <li>Add rinsed lentils and water. Stir well. Bring to a boil, then reduce to a steady simmer.</li>
+      <li>Cook 25-30 minutes uncovered until lentils are tender but still holding their shape. French lentils should have a slight firmness when bitten - not mushy. Skim any foam that appears in the first few minutes.</li>
+      <li>If the soup gets too thick before the lentils are done, add water in small splashes.</li>
+      <li>Do not add the lemon juice yet. Acid prevents lentils from softening properly - always add after the lentils are fully cooked.</li>
+    </ol>
+  </div>
+
+  <h3>Step 4 - Wilt the greens</h3>
+  <div class="recipe-box">
+    <ol>
+      <li>When lentils are tender, add kale or spinach to the pot. Stir until wilted, about 2-3 minutes for kale, 1 minute for spinach.</li>
+    </ol>
+  </div>
+
+  <h3>Step 5 - Finish off heat</h3>
+  <div class="recipe-box">
+    <ol>
+      <li>Remove the pot from heat or turn it to very low.</li>
+      <li>Scoop 3-4 tablespoons of hot broth into a small bowl. Add miso paste and whisk or stir until dissolved into a smooth liquid. Pour this back into the pot and stir through. Do not boil the soup again after adding miso.</li>
+      <li>Squeeze lemon juice over the pot. Taste for salt - the miso is salty, so add carefully.</li>
+      <li>Stir in nutritional yeast.</li>
+      <li>Ladle into bowls. Finish each bowl with za'atar and sesame seeds.</li>
+    </ol>
+  </div>
+
+  <div class="tip">
+    <strong>Why miso goes in off heat.</strong> Miso is a fermented product containing live probiotic cultures and aromatic volatile compounds that contribute to its complex flavor. Boiling destroys both - the probiotics die above 70C and the aromatics cook off. Dissolving miso in a small amount of hot broth first (rather than dropping paste directly into the pot) helps it incorporate evenly without clumping. The same principle applies to adding miso to salad dressings, marinades, or any application where the miso is meant to stay raw.
+  </div>
+
+  <div class="tip">
+    <strong>French lentils hold shape; red and brown do not.</strong> French (Puy) lentils have a firmer outer layer and hold their structure through cooking. Red lentils dissolve almost completely into a thick puree. Brown lentils split and partially dissolve. If you want a smooth, blended dal-style soup, use red lentils and skip the blender. If you want a soup with defined lentils in a clear broth (this recipe), use French lentils and monitor timing closely - they go from firm to soft to disintegrating in a narrow window.
+  </div>
+
+  <h2>Variations</h2>
+
+  <div class="recipe-box">
+    <ul>
+      <li><strong>Add garlic when back in stock</strong> - 3-4 cloves, minced, added with the spices. This soup is built for garlic and the flavor gap is noticeable without it.</li>
+      <li><strong>Fresh ginger</strong> (when back in stock) - 1 tbsp grated in place of dried. Fresh ginger is more citrusy and bright; dried is warmer and more concentrated.</li>
+      <li><strong>Spicy version</strong> - add chili crisp (in stock) or a pinch of cayenne with the spices.</li>
+      <li><strong>Heartier meal</strong> - serve over a bed of white or wild rice to soak up the broth, or with crusty bread.</li>
+      <li><strong>ACV finish</strong> - replace half the lemon juice with apple cider vinegar for a slightly different acid profile. ACV has less citrus brightness and more fermented complexity.</li>
+      <li><strong>Add feta on top</strong> - crumbled feta on each bowl adds protein and a salty, creamy contrast. Note that calcium in dairy competes with iron absorption; eat the soup first, add feta as garnish rather than cooking it in.</li>
+    </ul>
+  </div>
+
+  <h2>Nutritional Information</h2>
+  <p>Per serving (half recipe). Values are approximate; lentil iron content is well-documented but absorption varies with phytate content and vitamin C co-consumption.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="sortable">Component</th>
+        <th class="sortable">Cal</th>
+        <th class="sortable">Protein</th>
+        <th class="sortable">Fat</th>
+        <th class="sortable">Carbs</th>
+        <th class="sortable">Iron</th>
+        <th>Key nutrients</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://fdc.nal.usda.gov/food-details/175254/nutrients" target="_blank" rel="noopener">French lentils</a>, cooked (~175g from 75g dry)</td>
+        <td>203</td>
+        <td>15.8g</td>
+        <td>0.7g</td>
+        <td>35.2g</td>
+        <td>5.8mg</td>
+        <td>Folate (~45% DV per serving), fiber (~8g), potassium, phosphorus, manganese</td>
+      </tr>
+      <tr>
+        <td><a href="https://fdc.nal.usda.gov/food-details/169246/nutrients" target="_blank" rel="noopener">Leeks</a>, cleaned (100g)</td>
+        <td>61</td>
+        <td>1.5g</td>
+        <td>0.3g</td>
+        <td>14.2g</td>
+        <td>2.1mg</td>
+        <td>Vitamin K (~47% DV), vitamin C, manganese, kaempferol (flavonoid), allicin precursors</td>
+      </tr>
+      <tr>
+        <td><a href="https://fdc.nal.usda.gov/food-details/790646/nutrients" target="_blank" rel="noopener">Yellow onion</a> (75g)</td>
+        <td>30</td>
+        <td>0.8g</td>
+        <td>0.1g</td>
+        <td>7g</td>
+        <td>0.2mg</td>
+        <td>Quercetin, allicin precursors, vitamin C</td>
+      </tr>
+      <tr>
+        <td><a href="https://fdc.nal.usda.gov/food-details/2346405/nutrients" target="_blank" rel="noopener">Celery</a> (40g)</td>
+        <td>6</td>
+        <td>0.3g</td>
+        <td>0.1g</td>
+        <td>1.2g</td>
+        <td>0.1mg</td>
+        <td>Apigenin (anti-inflammatory), vitamin K, phthalides (blood pressure); mostly water and fiber</td>
+      </tr>
+      <tr>
+        <td><a href="https://fdc.nal.usda.gov/food-details/172442/nutrients" target="_blank" rel="noopener">Miso paste</a>, white (1 tbsp, ~17g)</td>
+        <td>34</td>
+        <td>2g</td>
+        <td>1g</td>
+        <td>4.5g</td>
+        <td>0.4mg</td>
+        <td>Probiotic cultures (if not boiled), B vitamins, ~630mg sodium per tbsp; 2 tbsp total = ~1260mg sodium for both servings</td>
+      </tr>
+      <tr>
+        <td>Olive oil (½ tbsp, ~7g)</td>
+        <td>62</td>
+        <td>0g</td>
+        <td>7g</td>
+        <td>0g</td>
+        <td>0mg</td>
+        <td>Oleic acid (monounsaturated), vitamin E, polyphenols</td>
+      </tr>
+      <tr>
+        <td><a href="https://fdc.nal.usda.gov/food-details/323505/nutrients" target="_blank" rel="noopener">Kale</a>, wilted (50g)</td>
+        <td>11</td>
+        <td>0.8g</td>
+        <td>0.3g</td>
+        <td>1.1g</td>
+        <td>0.4mg</td>
+        <td>Vitamin C (improves non-heme iron absorption from lentils), vitamin K, glucosinolates, calcium</td>
+      </tr>
+      <tr>
+        <td>Spices (cumin, turmeric, paprika, dried ginger)</td>
+        <td>~15</td>
+        <td>0.5g</td>
+        <td>0.4g</td>
+        <td>2.5g</td>
+        <td>0.5mg</td>
+        <td>Curcumin (with black pepper - add ¼ tsp for ~20x bioavailability boost), gingerols, cumin iron contribution</td>
+      </tr>
+      <tr>
+        <td><a href="https://fdc.nal.usda.gov/food-details/2421410/nutrients" target="_blank" rel="noopener">Nutritional yeast</a> (1 tbsp, ~8g)</td>
+        <td>22</td>
+        <td>4g</td>
+        <td>0.5g</td>
+        <td>2.5g</td>
+        <td>0.5mg</td>
+        <td>B12 (~167% DV if fortified), zinc, complete protein</td>
+      </tr>
+      <tr>
+        <td><a href="https://fdc.nal.usda.gov/food-details/167747/nutrients" target="_blank" rel="noopener">Lemon juice</a> (juice of ½ lemon, ~15ml)</td>
+        <td>4</td>
+        <td>0.1g</td>
+        <td>0g</td>
+        <td>1.3g</td>
+        <td>trace</td>
+        <td>Vitamin C (~12mg) - actively improves non-heme iron absorption from lentils; added late to preserve vitamin C content</td>
+      </tr>
+      <tr>
+        <td><a href="https://fdc.nal.usda.gov/food-details/170150/nutrients" target="_blank" rel="noopener">Sesame seeds</a> (1 tsp)</td>
+        <td>10</td>
+        <td>0.4g</td>
+        <td>0.8g</td>
+        <td>0.4g</td>
+        <td>0.2mg</td>
+        <td>Calcium, zinc, sesamol antioxidant</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Per serving</td>
+        <td>~458 kcal</td>
+        <td>~26g</td>
+        <td>~11g</td>
+        <td>~70g</td>
+        <td>~10.2mg</td>
+        <td>~630mg sodium (from miso); ~9-10g fiber; no saturated fat from dairy</td>
+      </tr>
+      <tr>
+        <td>% daily value*</td>
+        <td>23%</td>
+        <td>52%</td>
+        <td>14%</td>
+        <td>25%</td>
+        <td>57%</td>
+        <td>*2000 kcal diet; iron 18mg DV, protein 50g DV, fat 78g DV, carbs 275g DV</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="nutrition-box">
+    <strong>Nutritional highlights</strong>
+    <p><strong>Strengths:</strong> This is the highest-iron dish in the collection at ~10.2mg per serving (57% DV), driven by two strong non-heme iron sources in one pot: French lentils (~5.8mg) and leeks (~2.1mg). Critically, this soup also contains vitamin C from lemon juice and kale in the same dish - vitamin C significantly improves non-heme iron absorption by reducing ferric iron (Fe3+) to ferrous iron (Fe2+), which the intestine absorbs 2-3x more readily. No dairy in the recipe means no calcium inhibition of that absorption, making iron uptake conditions here better than in the paneer bowl. Folate is excellent (~45% DV from lentils alone) - a critical nutrient gap in vegetarian diets. Miso provides probiotic cultures, B vitamins, and umami without adding fat. At only ~11g total fat per serving (mostly monounsaturated from olive oil), this is the lightest main course in the collection by fat content. High fiber (~9-10g per serving) from lentils and vegetables supports gut health and sustained energy release.</p>
+    <p><strong>Watch points:</strong> Miso is the primary sodium source - 2 tbsp for the full recipe contributes ~1260mg sodium, or ~630mg per serving. This is moderate and well within safe limits for most people, but worth knowing if monitoring sodium. Lentils contain phytates, which bind iron and reduce absorption somewhat - the lemon juice in this recipe partially counteracts this, but soaking the lentils for 2-4 hours before cooking (then discarding the water) reduces phytates further if maximum iron absorption is the goal. Protein at ~26g per serving is solid for a soup. The carbohydrate load (~70g) comes almost entirely from lentils - appropriate for fueling exercise but a substantial amount for an inactive meal.</p>
+  </div>
+
+  <div class="tip">
+    <strong>Acid timing with lentils.</strong> Adding lemon juice, tomato, vinegar, or any acid before lentils are fully cooked will prevent them from softening properly. Acid stabilizes the pectin structure in legume cell walls, locking them in a firmer state. Add all acid (lemon, vinegar, tomatoes) only after the lentils have reached the texture you want. This rule applies to all dried beans and lentils.
+  </div>
+
+  <script>
+    document.querySelectorAll('th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const table = th.closest('table');
+        const tbody = table.querySelector('tbody');
+        const col = Array.from(th.parentElement.children).indexOf(th);
+        let asc = th.dataset.asc !== 'true';
+        th.dataset.asc = asc;
+        table.querySelectorAll('th.sortable').forEach(h => { h.className = 'sortable'; delete h.dataset.asc; });
+        th.className = 'sortable ' + (asc ? 'sort-asc' : 'sort-desc');
+        th.dataset.asc = asc;
+        Array.from(tbody.querySelectorAll('tr')).sort((a, b) => {
+          const va = parseFloat(a.cells[col].textContent.replace(/[^\d.]/g, '')) || 0;
+          const vb = parseFloat(b.cells[col].textContent.replace(/[^\d.]/g, '')) || 0;
+          return asc ? va - vb : vb - va;
+        }).forEach(r => tbody.appendChild(r));
+      });
+    });
+  </script>
+</body>
+</html>
