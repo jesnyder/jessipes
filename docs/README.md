@@ -8,24 +8,27 @@ This repository organizes cooking recipes, kitchen techniques, and nutritional i
 
 ```
 goodEats/
-├── README.md                        # This file — project objective and AI guidance
 ├── docs/
+│   ├── README.md                    # This file — project objective and AI guidance
 │   ├── style.css                    # Shared stylesheet for index.html (warm palette, card grid, table, sortable headers)
 │   ├── index.html                   # Landing page: recipe links (single column) + nutritional summary table (sortable by protein)
 │   ├── marinating-tofu.html         # Tofu prep, marinade, cooking, nutrition
 │   ├── marinating-paneer.html       # Paneer marinade options (incl. Labneh & Miso), cooking methods, nutrition
 │   ├── preparing-beets.html         # Beet prep: boiled, steamed, roasted, grilled, pressure cooked, raw — with nutritional tradeoffs table
-│   ├── cucumber-salad.html          # Cold Asian smashed-cucumber salad; pairs with warm spicy soup
-│   ├── morning-smoothie.html        # Daily 1L smoothie — ingredients, method, per-ingredient nutrition, notes on functional ingredients
-│   ├── ingredients.html             # Pantry reference table — all ingredients with nutritional info, culinary role, stock status; filterable and sortable
-│   └── about.html                   # Site philosophy, dietary approach, kitchen setup, evidence standards
+│   ├── cucumber-salad.html          # Cold Asian smashed-cucumber salad with Szechuan peppercorn oil option; pairs with mushroom rice
+│   ├── morning-smoothie.html        # Daily 1L smoothie — ingredients, method, per-ingredient nutrition, iron gap warning, B12/D notes
+│   ├── mushroom-rice.html           # Maitake mushroom rice (Instant Pot); UV-B ergosterol → vitamin D2; serves as side to cucumber salad
+│   ├── ingredients.html             # Pantry reference table — all ingredients with USDA FDC hyperlinks, nutritional info, culinary role, stock status; filterable and sortable
+│   └── about.html                   # Site philosophy, dietary approach (vegetarian, no seafood, low iron, cycling commuter), kitchen setup, evidence standards
 ├── recipes/
 │   ├── marinating-tofu.md           # Markdown source for tofu page
 │   └── marinating-paneer.md         # Markdown source for paneer page
-└── user_provided/
-    ├── dietary_restrictions.csv     # User dietary preferences — always read before writing content
-    ├── ingredients.csv              # Pantry inventory — in stock and out of stock ingredients
-    └── morningSmoothie.csv          # Morning smoothie reference
+├── user_provided/
+│   ├── dietary_restrictions.csv     # User dietary preferences — always read before writing content
+│   ├── ingredients.csv              # Pantry inventory — in stock and out of stock ingredients
+│   └── morningSmoothie.csv          # Morning smoothie reference
+└── usda_api/
+    └── api_cred.txt                 # USDA FoodData Central API key — do not commit; see rate limit rule below
 ```
 
 ## Dietary & Preference Context
@@ -63,3 +66,9 @@ Always check `user_provided/dietary_restrictions.csv` before writing recipes or 
 9. **Sortable tables.** Tables with quantitative columns (protein, calories) should be click-sortable. Follow the pattern in `docs/index.html` and `docs/ingredients.html` — inline JS at the bottom, `th.sortable` class with `::after` arrow indicators.
 
 10. **Ingredients page is the pantry reference.** When new ingredients appear in `user_provided/ingredients.csv`, add them to `docs/ingredients.html` with nutritional info, culinary role tags, and stock status. Roles to use: Acid, Aromatic / Spice, Fat / Richness, Fermented / Probiotic, Protein base, Sweet / Starchy, Umami, Vegetable.
+
+11. **USDA FoodData Central is the nutritional reference standard.** When citing nutritional values, use [USDA FDC](https://fdc.nal.usda.gov/). Hyperlink ingredient names in nutritional tables to their FDC food-details page, opening in a new tab: `<a href="https://fdc.nal.usda.gov/food-details/{FDC_ID}/nutrients" target="_blank" rel="noopener">Name</a>`. Use the USDA API to look up FDC IDs: key is in `usda_api/api_cred.txt`. **Rate limit: wait 10 seconds between API calls.** The following ingredients have no confirmed USDA FDC match and are left unlinked: Szechuan peppercorns, Za'atar, Labneh, Lion's mane powder, Arborio rice, Mexican-style rice, Plum vinegar (ume), Noodles.
+
+12. **Link evidence claims to credible sources.** The user is a scientist and values cause-and-effect reasoning. When stating that a cooking technique or ingredient has a specific effect (nutritional, biochemical, culinary), link to a credible primary or institutional source (USDA, NIH, peer-reviewed journal, university extension). Do not state uncertain claims as facts. State confidence level and note unknowns explicitly.
+
+13. **Labneh cooking behavior.** Labneh is a soft strained-yogurt cheese with high moisture content. It does **not** char at high heat. At high heat, the coating may brown gently, but a crisp crust does not form from labneh itself. Any charring in a labneh-marinated dish comes from the protein underneath (paneer, tofu). Cook labneh-coated dishes on medium-high heat, not maximum heat. Do not describe labneh as "charring well" anywhere in the site.

@@ -9,7 +9,14 @@ Really enjoy beans, tomatoes, vegetables,
 
 I am a a scientist. I appreciate understanding the cause and effect of different additions, the effect on nutirtion of different cooking techniques, links to reference. 
 
-Please do not invent or hallucinate. Take your time. State when you are not certain. The unknowns are places for both of us to learn. 
+Use the USDA Food Data Central for nutirtional information 
+Hyperlink the name of the ingredient in the nutirtional table to open in a new tab when clicked
+the relevant page on this resource 
+For example, this is the red onion, raw webpage
+https://fdc.nal.usda.gov/food-details/790577/nutrients
+use the usda api credential in the "usda_api" folder. respect rate limits and wait 10 seconds between pings. 
+
+Please do not invent or hallucinate. Take your time. State when you are not certain. The unknowns are places for both of us to learn. Perform web searches to find information from credible sources. Link your claims to the webpages.  
 
 Please review the "readMe" file and update as needed during the session so the next time we work together, we can pick up where we left off. 
 

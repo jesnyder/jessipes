@@ -1,7 +1,9 @@
 Items (if an "N - " begins the line, the item is not in stock) 
 
+Beans - Black, can 
+Beans - Pinto, cooked 
+
 Carbohydrate - Barley
-Carbohydrate - Black beans can
 Carbohydrate - Bulgar wheat
 Carbohydrate - Noodle 
 Carbohydrate - Quinoa
@@ -14,7 +16,7 @@ Dairy - Feta cheese
 Dairy - Ghee
 Dairy - Keifer 
 Dairy - Labneh 
-Dairy - Soy milk 
+Dairy - Soy milk, fortified with calcium and Vitamin D 
 
 Fermented - Balsamic vinegar
 Fermented - Kimchi 
@@ -60,6 +62,7 @@ Seeds - Caraway
 Seeds - Chia seeds 
 N - Seeds - Flax seeds 
 Seeds - Mustard
+N - Seeds - Pumpkin 
 Seeds - Seasame seeds
 
 Spice - Cumin
