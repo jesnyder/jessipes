@@ -13,6 +13,7 @@ Carbohydrate - Rice, Minnesota Cultivated Wild Rice
 
 N - Dairy - Chocolate chips
 N - Dairy - Coconut, milk can 
+N - Dairy - Cheese, Paneer
 Dairy - Feta cheese 
 Dairy - Ghee
 Dairy - Keifer 
@@ -22,15 +23,20 @@ N - Dairy - Sweet, Whopper mimic from Rainbow Grocery
 N - Yogurt - Greek full fat 
 N - Yogurt - Non dairy, cashew based 
 
-Fermented - Balsamic vinegar
 Fermented - Kimchi 
 Fermented - Mango pickle chutney 
 Fermented - Miso paste  
 Fermented - Pickles 
 N - Fermented - Sauerkraut 
 Fermented - Vinegar, Apple cider 
+Fermented - Vinegar, Balsamic
 Fermented - Vinegar, Plum
 Fermented - Vinegar, White
+
+Mushroom - Lion's mane, powder
+Mushroom - Maitake 
+N - Mushroom - Turkey tail, powder
+
 
 N - Produce - Apple, Green 
 N - Produce - Avocado 
@@ -85,6 +91,7 @@ N - Protein - Nuts, Pine
 N - Protein - Nuts, Pistachios 
 N - Protein - Nuts, Walnuts
 Protein - Pinto, cooked 
+N - Protein - Tofu, Firm 
 Protein - Whey protein powder, 60 g protein / 1 scoop (44 g) 
 
 N - Sauce - Almond butter
@@ -110,6 +117,7 @@ N - Seeds - Pumpkin
 Seeds - Seasame seeds
 
 Spice - Cumin
+Spice - Rose hips, powder
 Spice - Salt
 Spice - Paprika
 Spice - Pepper, black

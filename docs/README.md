@@ -16,9 +16,10 @@ goodEats/
 │   ├── marinating-paneer.html       # Paneer marinade options (incl. Labneh & Miso), cooking methods, nutrition
 │   ├── preparing-beets.html         # Beet prep: boiled, steamed, roasted, grilled, pressure cooked, raw — with nutritional tradeoffs table
 │   ├── cucumber-salad.html          # Cold Asian smashed-cucumber salad with Szechuan peppercorn oil option; pairs with mushroom rice
-│   ├── morning-smoothie.html        # Daily 1L smoothie — ingredients, method, per-ingredient nutrition, iron gap warning, B12/D notes
+│   ├── morning-smoothie.html        # Daily 1L smoothie — ingredients (incl. rose hips powder), method, per-ingredient nutrition, iron gap warning, B12/D notes
 │   ├── mushroom-rice.html           # Maitake mushroom rice (Instant Pot); UV-B ergosterol → vitamin D2; serves as side to cucumber salad
 │   ├── ingredients.html             # Pantry reference table — all ingredients with USDA FDC hyperlinks, nutritional info, culinary role, stock status; filterable and sortable
+│   ├── nutritional-guide.html       # Peer-reviewed guide to balanced diet and fasting — cited research with DOI links, sortable nutrient-by-function reference table
 │   └── about.html                   # Site philosophy, dietary approach (vegetarian, no seafood, low iron, cycling commuter), kitchen setup, evidence standards
 ├── recipes/
 │   ├── marinating-tofu.md           # Markdown source for tofu page
@@ -65,7 +66,7 @@ Always check `user_provided/dietary_restrictions.csv` before writing recipes or 
 
 9. **Sortable tables.** Tables with quantitative columns (protein, calories) should be click-sortable. Follow the pattern in `docs/index.html` and `docs/ingredients.html` — inline JS at the bottom, `th.sortable` class with `::after` arrow indicators.
 
-10. **Ingredients page is the pantry reference.** When new ingredients appear in `user_provided/ingredients.csv`, add them to `docs/ingredients.html` with nutritional info, culinary role tags, and stock status. Roles to use: Acid, Aromatic / Spice, Fat / Richness, Fermented / Probiotic, Protein base, Sweet / Starchy, Umami, Vegetable.
+10. **Ingredients page is the pantry reference.** When new ingredients appear in `user_provided/ingredients.csv`, add them to `docs/ingredients.html` with nutritional info, culinary role tags, and stock status. Roles to use: Acid, Aromatic / Spice, Carbohydrate, Fat / Richness, Fermented / Probiotic, Protein base, Sweet / Starchy, Umami, Vegetable. Functional mushroom powders (lion's mane, turkey tail) use Umami. Supplements without food calories (creatine) use Protein base. Psyllium husk and similar fiber supplements use Carbohydrate.
 
 11. **USDA FoodData Central is the nutritional reference standard.** When citing nutritional values, use [USDA FDC](https://fdc.nal.usda.gov/). Hyperlink ingredient names in nutritional tables to their FDC food-details page, opening in a new tab: `<a href="https://fdc.nal.usda.gov/food-details/{FDC_ID}/nutrients" target="_blank" rel="noopener">Name</a>`. Use the USDA API to look up FDC IDs: key is in `usda_api/api_cred.txt`. **Rate limit: wait 10 seconds between API calls.** The following ingredients have no confirmed USDA FDC match and are left unlinked: Szechuan peppercorns, Za'atar, Labneh, Lion's mane powder, Arborio rice, Mexican-style rice, Plum vinegar (ume), Noodles.
 

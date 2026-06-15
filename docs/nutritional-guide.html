@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutritional Guide - GoodEats</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #2c2c2c;
+      background: #faf9f6;
+      line-height: 1.7;
+    }
+    nav { margin-bottom: 2rem; font-size: 0.9rem; }
+    nav a { color: #5a3e2b; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1 {
+      font-size: 2rem;
+      border-bottom: 2px solid #c8a96e;
+      padding-bottom: 12px;
+      color: #1a1a1a;
+    }
+    h2 {
+      font-size: 1.3rem;
+      color: #5a3e2b;
+      margin-top: 2rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #3b2a1a;
+      margin-top: 1.5rem;
+      margin-bottom: 0.3rem;
+    }
+    ul, ol { padding-left: 22px; }
+    li { margin: 6px 0; }
+    strong { color: #3b2a1a; }
+    a { color: #5a7eb8; }
+    a:hover { text-decoration: underline; }
+    .principle-box {
+      background: #f0e8d8;
+      border-left: 4px solid #c8a96e;
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+    .principle-box p { margin: 0.4rem 0; }
+    .tip {
+      background: #eaf4ea;
+      border-left: 4px solid #6aaa64;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .caution {
+      background: #fef6e4;
+      border-left: 4px solid #e0a840;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .nutrition-box {
+      background: #f0f4f8;
+      border-left: 4px solid #5b8db8;
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 1px 8px;
+      border-radius: 10px;
+      margin-left: 6px;
+      font-family: sans-serif;
+      vertical-align: middle;
+      font-weight: normal;
+    }
+    .badge-strong { background: #d4edda; color: #155724; }
+    .badge-emerging { background: #fff3cd; color: #856404; }
+    .badge-caution { background: #f8d7da; color: #721c24; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 9px 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    th { background-color: #f0e8d8; font-weight: bold; white-space: nowrap; }
+    tr:hover { background-color: #faf3e8; }
+    th.sortable { cursor: pointer; user-select: none; }
+    th.sortable:hover { background-color: #e8dcc8; }
+    th.sortable::after { content: ' ⇅'; font-size: 0.75em; color: #9b8068; }
+    th.sort-asc::after { content: ' ↑'; color: #5a3e2b; }
+    th.sort-desc::after { content: ' ↓'; color: #5a3e2b; }
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 1rem 0 1.2rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .controls label { color: #5a3e2b; }
+    .controls select {
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+      padding: 5px 10px;
+      border: 1px solid #ddd0bb;
+      border-radius: 4px;
+      background: #f0e8d8;
+      color: #2c2c2c;
+    }
+    .fn-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 1px 7px;
+      border-radius: 8px;
+      margin: 2px 2px;
+      font-family: sans-serif;
+      white-space: nowrap;
+    }
+    .fn-muscle-build { background: #d4edda; color: #155724; }
+    .fn-muscle-heal  { background: #d1ecf1; color: #0c5460; }
+    .fn-brain        { background: #e2d9f3; color: #4a1d96; }
+    .fn-endurance    { background: #fff3cd; color: #856404; }
+    .fn-bone         { background: #fde8d8; color: #7d3811; }
+    .fn-immune       { background: #f8d7da; color: #721c24; }
+    .fn-cardio       { background: #f0e8d8; color: #5a3e2b; }
+    .fn-gut          { background: #eaf4ea; color: #276035; }
+    cite {
+      font-size: 0.88rem;
+      color: #6b5744;
+      font-style: normal;
+    }
+    .ref-list {
+      font-size: 0.88rem;
+      color: #555;
+      padding-left: 22px;
+    }
+    .ref-list li { margin: 10px 0; line-height: 1.5; }
+    .ref-list a { color: #5a7eb8; }
+  </style>
+</head>
+<body>
+
+  <nav><a href="index.html">← Back to GoodEats</a></nav>
+
+  <h1>Nutritional Guide</h1>
+  <p>A summary of what peer-reviewed nutrition science says about balanced eating and fasting — grounded in the strongest available human evidence, with honest notes on uncertainty. This is a reference for the principles behind the food choices on this site, not a prescription.</p>
+
+  <h2>What "Balanced" Actually Means</h2>
+  <p>The phrase "balanced diet" is vague in popular use. Scientifically it means meeting all essential macro- and micronutrient needs without chronic excess of anything that causes measurable harm. The most rigorous attempt to define this at a global level is the <strong><a href="https://doi.org/10.1016/S0140-6736(18)31788-4">EAT–Lancet Commission report</a></strong> (Willett et al., <em>Lancet</em>, 2019), which synthesized evidence across health outcomes and environmental sustainability. Its core recommendations:</p>
+  <ul>
+    <li>Predominantly plant-based foods: vegetables, fruits, whole grains, legumes, and nuts</li>
+    <li>Modest amounts of dairy and eggs; seafood and poultry as optional additions</li>
+    <li>Minimal red and processed meat, added sugars, and refined starches</li>
+    <li>Unsaturated fats (olive oil, nuts, seeds) over saturated fats</li>
+  </ul>
+  <p>This pattern is consistent across most long-term epidemiological evidence on diet and mortality.</p>
+
+  <h2>Dietary Patterns with Strong Evidence</h2>
+
+  <h3>Mediterranean Diet <span class="badge badge-strong">Well established</span></h3>
+  <p>The most extensively studied dietary pattern in controlled human trials. The <strong><a href="https://doi.org/10.1056/NEJMoa1800389">PREDIMED trial</a></strong> (Estruch et al., <em>NEJM</em>, 2018; n=7,447) found that a Mediterranean diet supplemented with extra-virgin olive oil or nuts reduced major cardiovascular events by ~30% over five years compared to a low-fat control diet. A <a href="https://doi.org/10.1136/bmj.a1344">meta-analysis by Sofi et al.</a> (<em>BMJ</em>, 2008; 12 studies, 1.5M person-years) found that each 2-point increase in Mediterranean diet adherence was associated with a 9% reduction in all-cause mortality.</p>
+  <div class="principle-box">
+    <p><strong>Core features:</strong> abundant vegetables, legumes, whole grains, and olive oil; herbs and spices over salt; moderate dairy and eggs; low red meat and ultra-processed food. The pattern matters more than any individual food.</p>
+  </div>
+
+  <h3>Whole-Food Plant-Based Diet <span class="badge badge-strong">Well established</span></h3>
+  <p>A <strong><a href="https://doi.org/10.1001/jamainternmed.2016.4182">large prospective cohort study</a></strong> (Song et al., <em>JAMA Internal Medicine</em>, 2016; n=131,342) found that replacing 3% of calories from animal protein with plant protein was associated with a 10% lower risk of all-cause mortality, with the effect strongest when replacing processed red meat. The effect was dose-dependent and consistent across subgroups.</p>
+  <p>Legumes in particular show unusually strong epidemiological support. A cross-cultural longitudinal study across five countries found legume consumption was the <strong>single strongest dietary predictor of survival in older adults</strong>, independent of ethnicity, smoking, BMI, and income. <cite>(Darmadi-Blackberry et al., <em>Asia Pacific Journal of Clinical Nutrition</em>, 2004; <a href="https://pubmed.ncbi.nlm.nih.gov/15228991/">PMID 15228991</a>)</cite></p>
+
+  <h2>Macronutrients</h2>
+
+  <h3>Protein</h3>
+  <p>The standard adult RDA of 0.8g/kg/day is a minimum to prevent deficiency, not a target for health or performance. For people doing regular endurance or resistance exercise, the evidence supports higher intake. A <strong><a href="https://doi.org/10.1136/bjsports-2017-097608">systematic review and meta-analysis</a></strong> (Morton et al., <em>British Journal of Sports Medicine</em>, 2018; 49 studies, n=1,863) found protein intake beyond <strong>~1.62g/kg/day</strong> produced no additional gains in muscle mass from resistance training. For endurance athletes, 1.2–1.6g/kg/day is a commonly cited evidence-based range to support muscle repair and glycogen replenishment.</p>
+  <p>In a vegetarian context, no single plant protein provides all essential amino acids in ideal ratios. Combining legumes with grains over the course of a day (not necessarily at the same meal) provides complete coverage. Tofu, edamame, and dairy are exceptions — complete proteins on their own.</p>
+
+  <h3>Carbohydrates</h3>
+  <p>Carbohydrates are the primary fuel for aerobic exercise above roughly 65% VO₂max. Muscle and liver glycogen is the rate-limiting fuel for sustained moderate-to-hard efforts. The evidence for adequate carbohydrate intake supporting endurance performance is robust; evidence for low-carb diets benefiting high-intensity endurance athletes is limited and inconsistent.</p>
+  <div class="tip">
+    <strong>For cycling commuters:</strong> carbohydrates before and after the ride are not optional — they determine glycogen availability for the next effort. Beans, rice, sweet potato, and whole grains are all high-quality sources that also provide fiber, micronutrients, and protein.
+  </div>
+
+  <h3>Dietary Fats</h3>
+  <p>Fat quality matters more than fat quantity. The evidence strongly supports replacing saturated fats with unsaturated fats, particularly polyunsaturated fats. For omega-3 fatty acids, EPA and DHA (found in fatty fish and algae) have the most consistent cardiovascular evidence. ALA — found in flaxseed, chia, and walnuts — is the plant omega-3, but conversion to EPA and DHA is poor in most adults: typically <strong>~5–15% of ALA converts to EPA</strong> and <strong>~0.5–5% to DHA</strong>. <cite>(Burdge &amp; Calder, <em>Reproduction Nutrition Development</em>, 2005; <a href="https://doi.org/10.1051/rnd:2005047">doi:10.1051/rnd:2005047</a>)</cite></p>
+  <p>This means vegetarians who eat substantial flaxseed and chia are likely not meeting EPA/DHA needs from those sources alone. Algae-derived omega-3 supplements (the source fish themselves use) address this directly and are the most evidence-aligned option for vegetarians.</p>
+
+  <h2>Fiber and the Gut Microbiome</h2>
+  <p>Dietary fiber is one of the most consistently protective dietary components across epidemiological literature, associated with lower rates of cardiovascular disease, type 2 diabetes, and colorectal cancer. Much of this effect is mediated by gut bacteria that ferment fiber into short-chain fatty acids — particularly butyrate — which regulate intestinal barrier function, systemic inflammation, and metabolic signaling. A landmark review by <strong><a href="https://doi.org/10.1038/nature18876">Sonnenburg &amp; Bäckhed</a></strong> (<em>Nature</em>, 2016) synthesized how diet shapes the microbiome and how the microbiome in turn shapes host metabolism.</p>
+  <p>A <strong><a href="https://doi.org/10.1016/j.cell.2021.06.019">randomized controlled trial</a></strong> from the Sonnenburg lab (Wastyk et al., <em>Cell</em>, 2021; n=36, 17-week intervention) directly compared high-fiber and high-fermented-food diets. The fermented food diet — kefir, yogurt, kimchi, kombucha, fermented vegetables — produced a larger increase in microbiome diversity and a broader reduction in 19 inflammatory proteins than the high-fiber diet alone. The two diets had largely non-overlapping effects, meaning both have independent value.</p>
+  <div class="principle-box">
+    <p><strong>Practical implication:</strong> diversity of plant foods matters as much as total fiber quantity. Thirty or more distinct plant foods per week is a useful target (herbs and spices count). Fermented foods add a distinct benefit that fiber alone does not replicate.</p>
+  </div>
+
+  <h2>Intermittent Fasting: What the Evidence Shows</h2>
+  <p>Intermittent fasting (IF) refers to eating patterns that cycle between defined periods of eating and fasting. The main human-studied protocols:</p>
+  <ul>
+    <li><strong>Time-restricted eating (TRE)</strong> — all eating within a 6–10 hour daily window (e.g., 16:8 means 16 hours fasting, 8-hour eating window)</li>
+    <li><strong>Alternate-day fasting (ADF)</strong> — alternating very low calorie days (~500 kcal) with unrestricted days</li>
+    <li><strong>5:2 diet</strong> — two non-consecutive 500–600 kcal days per week; five unrestricted days</li>
+    <li><strong>Prolonged fasting / fasting-mimicking diet</strong> — 2–5 day multi-day fasts; not recommended for active individuals in most contexts</li>
+  </ul>
+  <p>The most comprehensive review of IF evidence is <strong><a href="https://doi.org/10.1056/NEJMra1905136">de Cabo &amp; Mattson</a></strong> (<em>NEJM</em>, 2019), which found consistent evidence across animal models and human trials for improvements in insulin sensitivity, blood glucose, blood pressure, resting heart rate, and lipid profiles. Mechanistically, fasting shifts fuel metabolism from glucose toward fat oxidation and triggers autophagy — a cellular self-repair process that degrades and recycles damaged proteins and organelles.</p>
+
+  <h3>Time-Restricted Eating <span class="badge badge-strong">Well established</span> (metabolic markers) <span class="badge badge-emerging">Emerging</span> (long-term outcomes)</h3>
+  <p>A rigorous RCT by <strong><a href="https://doi.org/10.1016/j.cmet.2018.04.010">Sutton et al.</a></strong> (<em>Cell Metabolism</em>, 2018; n=8, crossover) showed that <em>early</em> TRE — eating from 8am to 2pm, 18-hour fast — improved insulin sensitivity, blood pressure, and oxidative stress markers in men with prediabetes <strong>without caloric restriction and without weight loss</strong>. The metabolic benefit appears partly driven by alignment with circadian biology: metabolic processes are measurably more efficient in the morning, and eating late in the day blunts insulin response even when total calories are matched.</p>
+
+  <h3>Alternate-Day Fasting <span class="badge badge-emerging">Emerging</span></h3>
+  <p>A 12-month RCT by <strong><a href="https://doi.org/10.1001/jamainternmed.2017.0936">Trepanowski et al.</a></strong> (<em>JAMA Internal Medicine</em>, 2017; n=100) compared ADF to daily caloric restriction and a control diet in metabolically healthy obese adults. Both ADF and daily restriction produced similar weight loss (~6%) and similar improvements in cardiovascular risk markers at 6 and 12 months. ADF offered no additional benefit over daily restriction, but it was a feasible alternative for people who find daily restriction difficult to sustain — adherence was comparable between groups.</p>
+
+  <h2>Fasting Considerations for Active and Vegetarian Individuals</h2>
+
+  <h3>Glycogen, Performance, and Fasting Compatibility</h3>
+  <p>Fasted endurance exercise depletes glycogen faster and increases reliance on fat oxidation. This can improve fat-burning capacity over time but impairs high-intensity performance and can compromise training quality. The weight of evidence for regular moderate-to-high intensity exercise — including cycle commuting — supports ensuring adequate carbohydrate availability before and after exercise, which is easier to manage within a 10–12 hour eating window than a strict 16:8 protocol.</p>
+  <div class="caution">
+    <strong>Practical note for cyclists:</strong> If using TRE, structure your eating window around your ride — not the other way around. Riding fasted in the morning is feasible for easy efforts but may impair harder sessions. Post-ride glycogen replenishment within 30–60 minutes supports recovery more effectively than extending the fast.
+  </div>
+
+  <h3>TRE and Training Adaptations <span class="badge badge-emerging">Emerging</span></h3>
+  <p>A randomized trial by <strong><a href="https://doi.org/10.1186/s12967-016-1044-0">Moro et al.</a></strong> (<em>Journal of Translational Medicine</em>, 2016; n=34, 8 weeks) found that a 16:8 TRE protocol in resistance-trained men produced similar muscle retention and strength gains to a normal eating schedule, with greater reductions in fat mass and some inflammatory markers. This suggests TRE is compatible with muscle preservation in resistance-trained athletes. Generalizability to endurance athletes and women is uncertain.</p>
+
+  <h3>Women and Fasting <span class="badge badge-caution">Use caution</span></h3>
+  <p>Most IF trials have enrolled predominantly overweight or obese adults, often skewing male. There is emerging evidence that aggressive fasting may have different hormonal effects in lean, highly active women. Low energy availability in female athletes can disrupt hypothalamic-pituitary-gonadal axis signaling, leading to menstrual dysfunction, bone density loss, and impaired performance — a constellation formally defined as <strong>Relative Energy Deficiency in Sport (RED-S)</strong>. A consensus statement from the IOC (<strong><a href="https://doi.org/10.1136/bjsports-2018-099193">Mountjoy et al.</a></strong>, <em>British Journal of Sports Medicine</em>, 2018) defines diagnostic criteria and management. Women with low body weight, high training load, or any history of menstrual irregularity should be cautious about strict fasting protocols.</p>
+
+  <h3>Iron Absorption and Meal Timing</h3>
+  <p>Fasting windows can be structured to improve iron absorption — a meaningful consideration for vegetarians with low iron history. Non-heme iron (the form in plant foods) is enhanced by vitamin C consumed at the same meal and inhibited by tannins (tea, coffee, matcha), calcium (dairy), and phytates (whole grains in large quantities). If using any fasting structure, placing your highest-iron meals away from tea and dairy-heavy meals is the highest-leverage change. This does not require a strict IF protocol — deliberate meal composition is sufficient.</p>
+
+  <h2>What the Evidence Actually Supports</h2>
+  <div class="principle-box">
+    <p><strong>Diet quality comes first.</strong> The evidence for dietary pattern quality — plenty of vegetables, legumes, whole grains, and fermented foods; minimal ultra-processed food — is stronger and more consistent than evidence for any specific meal timing strategy.</p>
+    <p><strong>A 10–12 hour eating window is reasonable and probably beneficial.</strong> Finishing dinner by 7–8pm and eating breakfast by 7–9am aligns with circadian biology and has demonstrated metabolic benefit without requiring caloric restriction. This is the minimum-friction version of TRE.</p>
+    <p><strong>Earlier eating windows outperform later ones.</strong> All else equal, eating between 8am and 6pm appears more metabolically beneficial than 12pm to 8pm, based on circadian physiology. But any structured window is likely better than completely unstructured eating.</p>
+    <p><strong>Aggressive fasting is not necessary and may be counterproductive for active people.</strong> 24-hour fasts and very-low-calorie days may impair training quality, recovery, and — particularly in lean active women — hormonal function. Overnight fasts of 12–14 hours are sufficient to trigger autophagy and metabolic benefits without compromising performance.</p>
+    <p><strong>Protein timing matters.</strong> Spreading protein across meals rather than loading it all into one sitting supports muscle protein synthesis more effectively throughout the day. A practical target: 25–35g protein per main meal.</p>
+  </div>
+
+  <h2>Nutrient Reference by Body Function</h2>
+  <p>Key nutrients, what they do, and where to find them on a vegetarian diet. Click a column header to sort; use the filter to focus on a specific goal.</p>
+
+  <div class="controls">
+    <label for="fn-filter">Focus:</label>
+    <select id="fn-filter">
+      <option value="all">All functions</option>
+      <option value="muscle-build">Muscle Building</option>
+      <option value="muscle-heal">Muscle Healing &amp; Recovery</option>
+      <option value="brain">Brain Function</option>
+      <option value="endurance">Endurance &amp; Energy</option>
+      <option value="bone">Bone Health</option>
+      <option value="immune">Immune Function</option>
+      <option value="cardio">Cardiovascular</option>
+      <option value="gut">Gut Health</option>
+    </select>
+  </div>
+
+  <table id="nutrient-table">
+    <thead>
+      <tr>
+        <th class="sortable" data-col="0">Nutrient</th>
+        <th>Functions</th>
+        <th class="sortable" data-col="2">Daily Target</th>
+        <th>Top Sources (Vegetarian)</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-fn="muscle-build muscle-heal endurance">
+        <td>Protein (total)</td>
+        <td><span class="fn-tag fn-muscle-build">Muscle Building</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span> <span class="fn-tag fn-endurance">Endurance</span></td>
+        <td>1.2–1.6g/kg/day (active); max benefit ~1.62g/kg</td>
+        <td>Whey, lentils, tofu, paneer, eggs, beans, kefir</td>
+        <td>Spread across meals; ≥25g/meal for muscle protein synthesis. Plant proteins need variety across the day to cover all essential amino acids.</td>
+      </tr>
+      <tr data-fn="muscle-build">
+        <td>Leucine</td>
+        <td><span class="fn-tag fn-muscle-build">Muscle Building</span></td>
+        <td>≥2–3g/meal (MPS threshold)</td>
+        <td>Whey (~4.5g/30g scoop — highest), eggs, edamame, soy milk</td>
+        <td>The primary amino acid that triggers muscle protein synthesis. One scoop of whey exceeds the threshold. Plant sources have lower leucine density — larger portions required to match.</td>
+      </tr>
+      <tr data-fn="endurance immune">
+        <td>Iron (non-heme)</td>
+        <td><span class="fn-tag fn-endurance">Endurance</span> <span class="fn-tag fn-immune">Immune</span></td>
+        <td>18mg/day (women); ~32mg/day vegetarian recommendation</td>
+        <td>Lentils (3.3mg/½ cup cooked), cooked spinach (3.2mg), kidney beans (2.6mg), chia (1.9mg/2 tbsp), spirulina</td>
+        <td>All plant iron is non-heme — absorbed at 2–20% efficiency. Pair with vitamin C; eat separately from tea, matcha, calcium, and high-phytate foods. Track serum ferritin, not just hemoglobin — ferritin drops first.</td>
+      </tr>
+      <tr data-fn="brain muscle-heal">
+        <td>Vitamin B12</td>
+        <td><span class="fn-tag fn-brain">Brain Function</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span></td>
+        <td>2.4mcg/day</td>
+        <td>Fortified nutritional yeast (333% DV/2 tbsp), kefir, eggs, whey protein</td>
+        <td>Not bioavailable from plant foods. Spirulina's apparent B12 is a non-functional analog. Deficiency causes irreversible nerve damage and develops slowly — supplementation is strongly recommended for vegetarians.</td>
+      </tr>
+      <tr data-fn="brain cardio muscle-heal">
+        <td>Omega-3 (EPA &amp; DHA)</td>
+        <td><span class="fn-tag fn-brain">Brain Function</span> <span class="fn-tag fn-cardio">Cardiovascular</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span></td>
+        <td>250–500mg/day EPA+DHA combined</td>
+        <td>Algae-derived omega-3 supplement (only reliable vegetarian source)</td>
+        <td>EPA and DHA are the active anti-inflammatory omega-3s. ALA from flax and chia converts to EPA at ~5–15% and to DHA at ~0.5–5% — algae oil is the direct-source alternative fish themselves use.</td>
+      </tr>
+      <tr data-fn="cardio">
+        <td>ALA Omega-3</td>
+        <td><span class="fn-tag fn-cardio">Cardiovascular</span></td>
+        <td>1.1g/day (women), 1.6g/day (men) adequate intake</td>
+        <td>Flaxseed oil (~7g/tbsp), chia seeds (~4g/2 tbsp), walnuts</td>
+        <td>Plant precursor to EPA/DHA. Converts to EPA at ~5–15% and DHA at ~0.5–5%. Has independent cardiovascular benefit beyond conversion. Morning smoothie supplies ~11g ALA/serving — well above adequate intake.</td>
+      </tr>
+      <tr data-fn="bone immune muscle-heal">
+        <td>Vitamin D</td>
+        <td><span class="fn-tag fn-bone">Bone Health</span> <span class="fn-tag fn-immune">Immune</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span></td>
+        <td>600–800 IU/day (RDA); 1000–2000 IU common supplemental target</td>
+        <td>UV-exposed maitake mushrooms (~562 IU/½ cup), fortified soy milk (~100 IU/cup), egg yolk (~44 IU)</td>
+        <td>Required for calcium absorption, immune regulation, and muscle fiber function. Commonly deficient — sun exposure unreliable at northern latitudes. Supplementation widely recommended. Get blood levels tested if unsure.</td>
+      </tr>
+      <tr data-fn="bone muscle-heal">
+        <td>Calcium</td>
+        <td><span class="fn-tag fn-bone">Bone Health</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span></td>
+        <td>1000mg/day</td>
+        <td>Fortified soy milk (300–450mg/cup), calcium-set tofu (~350mg/100g), kefir, kale, sesame seeds</td>
+        <td>Essential for bone mineral density and muscle contraction. Competes with non-heme iron at intestinal transporters — avoid high-calcium meals around high-iron meals. Requires vitamin D for absorption.</td>
+      </tr>
+      <tr data-fn="muscle-heal endurance brain">
+        <td>Magnesium</td>
+        <td><span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span> <span class="fn-tag fn-endurance">Endurance</span> <span class="fn-tag fn-brain">Brain Function</span></td>
+        <td>310mg/day (women), 420mg/day (men)</td>
+        <td>Pumpkin seeds (156mg/oz), chia, quinoa, spinach, lentils, dark chocolate</td>
+        <td>Required for ATP production, muscle relaxation after contraction, nerve signal transmission, and sleep quality. Depleted in sweat during exercise. Commonly inadequate on Western diets.</td>
+      </tr>
+      <tr data-fn="immune muscle-heal muscle-build">
+        <td>Zinc</td>
+        <td><span class="fn-tag fn-immune">Immune</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span> <span class="fn-tag fn-muscle-build">Muscle Building</span></td>
+        <td>8mg/day (women), 11mg/day (men)</td>
+        <td>Pumpkin seeds (2.2mg/oz), wheat germ, nutritional yeast, lentils (1.3mg/½ cup), miso</td>
+        <td>Required for protein synthesis, wound healing, and immune cell production. Phytates in legumes and grains inhibit absorption — soaking and fermenting reduce this. Often lower in vegetarian diets.</td>
+      </tr>
+      <tr data-fn="brain muscle-heal">
+        <td>Folate (B9)</td>
+        <td><span class="fn-tag fn-brain">Brain Function</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span></td>
+        <td>400mcg DFE/day</td>
+        <td>Lentils (179mcg/½ cup cooked — highest), chickpeas (71% DV), spinach, wheat germ, Brussels sprouts</td>
+        <td>Essential for DNA synthesis and cell division — critical during tissue repair. Works in concert with B12; deficiency of either causes overlapping symptoms. Well-covered by lentils and leafy greens on this diet.</td>
+      </tr>
+      <tr data-fn="muscle-heal immune endurance">
+        <td>Vitamin C</td>
+        <td><span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span> <span class="fn-tag fn-immune">Immune</span> <span class="fn-tag fn-endurance">Endurance</span></td>
+        <td>65–90mg/day; up to 500mg around training</td>
+        <td>Brussels sprouts (142% DV), bell peppers (190mg/100g), lemon juice, kiwi, banana (in smoothie)</td>
+        <td>Required for collagen synthesis — the structural protein of tendons, ligaments, and cartilage. Critically enhances non-heme iron absorption 3–6× when eaten with iron-rich plant foods. Add to iron meals, not to the smoothie which already has iron-inhibitors.</td>
+      </tr>
+      <tr data-fn="endurance cardio muscle-heal">
+        <td>Potassium</td>
+        <td><span class="fn-tag fn-endurance">Endurance</span> <span class="fn-tag fn-cardio">Cardiovascular</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span></td>
+        <td>2600mg/day (women), 3400mg/day (men)</td>
+        <td>Sweet potato, banana, lentils, spinach, avocado, white beans</td>
+        <td>Primary intracellular electrolyte. Regulates muscle contraction, nerve signaling, and fluid balance. Lost in sweat during cycling. Plant-rich diets typically meet needs; deficiency is rare but possible with very high endurance output.</td>
+      </tr>
+      <tr data-fn="endurance cardio">
+        <td>Dietary Nitrates</td>
+        <td><span class="fn-tag fn-endurance">Endurance</span> <span class="fn-tag fn-cardio">Cardiovascular</span></td>
+        <td>~300–500mg nitrate/day; no formal RDA</td>
+        <td>Beets (highest), spinach, arugula, celery, kale</td>
+        <td>Converted to nitric oxide, which dilates blood vessels — improves oxygen delivery to working muscles and reduces VO₂ at submaximal intensities. Evidence is strongest for endurance performance and blood pressure. Antibacterial mouthwash reduces the oral bacteria that start the conversion.</td>
+      </tr>
+      <tr data-fn="brain muscle-heal">
+        <td>Choline</td>
+        <td><span class="fn-tag fn-brain">Brain Function</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span></td>
+        <td>425mg/day (women), 550mg/day (men)</td>
+        <td>Eggs — yolk only (~27% DV/egg), tofu, quinoa, broccoli</td>
+        <td>Required for acetylcholine synthesis (memory, muscle control) and liver fat metabolism. Difficult to meet on a plant-based diet without eggs. Often overlooked in vegetarian planning; supplementation may be warranted if eggs are not eaten regularly.</td>
+      </tr>
+      <tr data-fn="cardio gut immune">
+        <td>Beta-glucan fiber</td>
+        <td><span class="fn-tag fn-cardio">Cardiovascular</span> <span class="fn-tag fn-gut">Gut Health</span> <span class="fn-tag fn-immune">Immune</span></td>
+        <td>≥3g/day for LDL cholesterol effect</td>
+        <td>Oats (3.6g/40g dry serving), barley (6g/100g cooked), maitake mushrooms</td>
+        <td>The specific soluble fiber with FDA-recognized evidence for reducing LDL cholesterol. Also feeds beneficial gut bacteria and supports immune signaling. Oats and barley are the main dietary sources; 3g/day consistently is the threshold for the LDL effect.</td>
+      </tr>
+      <tr data-fn="brain cardio muscle-heal gut">
+        <td>Polyphenols / Antioxidants</td>
+        <td><span class="fn-tag fn-brain">Brain Function</span> <span class="fn-tag fn-cardio">Cardiovascular</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span> <span class="fn-tag fn-gut">Gut Health</span></td>
+        <td>No RDA; 30+ plant foods/week is the best-evidenced diversity target</td>
+        <td>Matcha (EGCG), berries (anthocyanins), dark chocolate (flavanols), beets (betalains), za'atar, miso</td>
+        <td>Broad class of plant compounds with anti-inflammatory, antioxidant, and gut-modulatory effects. No single compound replicates the benefit of dietary diversity — the 30-plant-foods-per-week target is the most practical evidence-backed proxy.</td>
+      </tr>
+      <tr data-fn="endurance muscle-build">
+        <td>Carbohydrates (glycogen)</td>
+        <td><span class="fn-tag fn-endurance">Endurance</span> <span class="fn-tag fn-muscle-build">Muscle Building</span></td>
+        <td>5–7g/kg/day (moderate endurance training)</td>
+        <td>Rice, oats, beans, sweet potato, quinoa, lentils, banana</td>
+        <td>Rate-limiting fuel above ~65% VO₂max. Glycogen depletion causes fatigue before protein or fat limits are reached. Required for both performance and the hormonal environment for muscle adaptation. Not optional for active individuals.</td>
+      </tr>
+      <tr data-fn="muscle-build brain">
+        <td>Creatine</td>
+        <td><span class="fn-tag fn-muscle-build">Muscle Building</span> <span class="fn-tag fn-brain">Brain Function</span></td>
+        <td>3–5g/day (supplement); no significant food source</td>
+        <td>No significant vegetarian food source — supplement as creatine monohydrate</td>
+        <td>Vegetarians typically have 20–30% lower baseline muscle creatine than omnivores because dietary creatine comes from meat. Creatine monohydrate is among the most evidence-backed supplements: improves maximal power and sprint capacity; emerging evidence for cognitive benefit under stress or sleep deprivation. Safe long-term.</td>
+      </tr>
+      <tr data-fn="immune muscle-heal">
+        <td>Selenium</td>
+        <td><span class="fn-tag fn-immune">Immune</span> <span class="fn-tag fn-muscle-heal">Healing &amp; Recovery</span></td>
+        <td>55mcg/day</td>
+        <td>Brazil nuts (1–2 nuts = full RDA, ~68–90mcg/nut), mixed nuts with Brazil, oats</td>
+        <td>Required for thyroid hormone metabolism and antioxidant enzyme function. Often low on plant-based diets — soil selenium levels vary and plant content is unpredictable. One or two Brazil nuts per day is the most reliable and practical solution.</td>
+      </tr>
+      <tr data-fn="endurance brain">
+        <td>Iodine</td>
+        <td><span class="fn-tag fn-endurance">Endurance</span> <span class="fn-tag fn-brain">Brain Function</span></td>
+        <td>150mcg/day</td>
+        <td>Iodized salt (~100mcg/½ tsp); seaweed (variable — avoid relying on it)</td>
+        <td>Required for thyroid hormones that regulate metabolic rate. Commonly low in vegetarian diets that avoid iodized salt and dairy. Seaweed is an unreliable source — iodine content varies dramatically by species and batch. Iodized salt is the most consistent approach.</td>
+      </tr>
+      <tr data-fn="brain muscle-build">
+        <td>Vitamin B6</td>
+        <td><span class="fn-tag fn-brain">Brain Function</span> <span class="fn-tag fn-muscle-build">Muscle Building</span></td>
+        <td>1.3–1.7mg/day</td>
+        <td>Pistachios (28% DV/oz), banana (24% DV), spinach, lentils</td>
+        <td>Required for converting amino acids into neurotransmitters (serotonin, dopamine) and for protein metabolism. Particularly relevant alongside high protein intake from whey and paneer. Well-covered on a plant-rich diet.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>References</h2>
+  <ol class="ref-list">
+    <li>Willett W, et al. Food in the Anthropocene: the EAT–Lancet Commission on healthy diets from sustainable food systems. <em>Lancet</em>. 2019;393(10170):447–492. <a href="https://doi.org/10.1016/S0140-6736(18)31788-4">doi:10.1016/S0140-6736(18)31788-4</a></li>
+    <li>Estruch R, et al. Primary Prevention of Cardiovascular Disease with a Mediterranean Diet Supplemented with Extra-Virgin Olive Oil or Nuts. <em>NEJM</em>. 2018;378:e34. <a href="https://doi.org/10.1056/NEJMoa1800389">doi:10.1056/NEJMoa1800389</a></li>
+    <li>Sofi F, et al. Adherence to Mediterranean diet and health status: meta-analysis. <em>BMJ</em>. 2008;337:a1344. <a href="https://doi.org/10.1136/bmj.a1344">doi:10.1136/bmj.a1344</a></li>
+    <li>Song M, et al. Association of Animal and Plant Protein Intake With All-Cause and Cause-Specific Mortality. <em>JAMA Internal Medicine</em>. 2016;176(10):1453–1463. <a href="https://doi.org/10.1001/jamainternmed.2016.4182">doi:10.1001/jamainternmed.2016.4182</a></li>
+    <li>Darmadi-Blackberry I, et al. Legumes: the most important dietary predictor of survival in older people of different ethnicities. <em>Asia Pacific Journal of Clinical Nutrition</em>. 2004;13(2):217–220. <a href="https://pubmed.ncbi.nlm.nih.gov/15228991/">PMID 15228991</a></li>
+    <li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. <em>British Journal of Sports Medicine</em>. 2018;52(6):376–384. <a href="https://doi.org/10.1136/bjsports-2017-097608">doi:10.1136/bjsports-2017-097608</a></li>
+    <li>Burdge GC, Calder PC. Conversion of alpha-linolenic acid to longer-chain polyunsaturated fatty acids in human adults. <em>Reproduction Nutrition Development</em>. 2005;45(5):581–597. <a href="https://doi.org/10.1051/rnd:2005047">doi:10.1051/rnd:2005047</a></li>
+    <li>Sonnenburg JL, Bäckhed F. Diet–microbiota interactions as moderators of human metabolism. <em>Nature</em>. 2016;535(7610):56–64. <a href="https://doi.org/10.1038/nature18876">doi:10.1038/nature18876</a></li>
+    <li>Wastyk HC, et al. Gut-microbiota-targeted diets modulate human immune status. <em>Cell</em>. 2021;184(16):4137–4153. <a href="https://doi.org/10.1016/j.cell.2021.06.019">doi:10.1016/j.cell.2021.06.019</a></li>
+    <li>de Cabo R, Mattson MP. Effects of Intermittent Fasting on Health, Aging, and Disease. <em>NEJM</em>. 2019;381(26):2541–2551. <a href="https://doi.org/10.1056/NEJMra1905136">doi:10.1056/NEJMra1905136</a></li>
+    <li>Sutton EF, et al. Early Time-Restricted Feeding Improves Insulin Sensitivity, Blood Pressure, and Oxidative Stress Even without Weight Loss in Men with Prediabetes. <em>Cell Metabolism</em>. 2018;27(6):1212–1221. <a href="https://doi.org/10.1016/j.cmet.2018.04.010">doi:10.1016/j.cmet.2018.04.010</a></li>
+    <li>Trepanowski JF, et al. Effect of Alternate-Day Fasting on Weight Loss, Weight Maintenance, and Cardioprotection Among Metabolically Healthy Obese Adults. <em>JAMA Internal Medicine</em>. 2017;177(7):930–938. <a href="https://doi.org/10.1001/jamainternmed.2017.0936">doi:10.1001/jamainternmed.2017.0936</a></li>
+    <li>Moro T, et al. Effects of eight weeks of time-restricted feeding (16/8) on basal metabolism, maximal strength, body composition, inflammation, and cardiovascular risk factors in resistance-trained males. <em>Journal of Translational Medicine</em>. 2016;14(1):290. <a href="https://doi.org/10.1186/s12967-016-1044-0">doi:10.1186/s12967-016-1044-0</a></li>
+    <li>Mountjoy M, et al. IOC consensus statement on relative energy deficiency in sport (RED-S): 2018 update. <em>British Journal of Sports Medicine</em>. 2018;52(11):687–697. <a href="https://doi.org/10.1136/bjsports-2018-099193">doi:10.1136/bjsports-2018-099193</a></li>
+  </ol>
+
+  <div class="nutrition-box">
+    This page is a personal reference, not medical or dietary advice. Evidence-based recommendations are population-level findings and may not apply to any specific individual. For clinical nutrition questions — especially regarding iron deficiency, athletic performance, or hormonal health — consult a registered dietitian.
+  </div>
+
+  <script>
+    const nutrientTable = document.getElementById('nutrient-table');
+    const fnFilter = document.getElementById('fn-filter');
+    const nutrientTbody = nutrientTable.querySelector('tbody');
+    let currentFn = 'all';
+
+    fnFilter.addEventListener('change', () => {
+      currentFn = fnFilter.value;
+      applyFilter();
+    });
+
+    function applyFilter() {
+      Array.from(nutrientTbody.querySelectorAll('tr')).forEach(row => {
+        row.style.display = currentFn === 'all' || row.dataset.fn.includes(currentFn) ? '' : 'none';
+      });
+    }
+
+    nutrientTable.querySelectorAll('th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const col = parseInt(th.dataset.col);
+        const asc = !th.classList.contains('sort-asc');
+        nutrientTable.querySelectorAll('th').forEach(h => {
+          if (h.classList.contains('sortable')) h.className = 'sortable';
+        });
+        th.className = 'sortable ' + (asc ? 'sort-asc' : 'sort-desc');
+        Array.from(nutrientTbody.querySelectorAll('tr'))
+          .sort((a, b) => {
+            const av = a.cells[col] ? a.cells[col].textContent.trim() : '';
+            const bv = b.cells[col] ? b.cells[col].textContent.trim() : '';
+            return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+          })
+          .forEach(r => nutrientTbody.appendChild(r));
+        applyFilter();
+      });
+    });
+  </script>
+</body>
+</html>
